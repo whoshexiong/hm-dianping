@@ -46,6 +46,9 @@ public class SimpleRedisLock implements ILock{
         return Boolean.TRUE.equals(success);
     }
 
+    /**
+     * 释放锁之前判断锁是否是自己的
+     */
 //    @Override
 //    public void unlock() {
 //        // 获取线程标示
@@ -58,6 +61,7 @@ public class SimpleRedisLock implements ILock{
 //            stringRedisTemplate.delete(KEY_PREFIX + name);
 //        }
 //    }
+
     @Override
     public void unlock() {
         // 调用lua脚本
